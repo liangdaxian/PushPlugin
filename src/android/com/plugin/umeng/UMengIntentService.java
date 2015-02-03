@@ -1,4 +1,4 @@
-package com.plugin.gcm;
+package com.plugin.umeng;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,15 +13,19 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
-import com.google.android.gcm.GCMBaseIntentService;
+import org.android.agoo.client.BaseConstants;
+
+import com.umeng.common.message.Log;
+import com.umeng.message.UmengBaseIntentService;
+import com.umeng.message.entity.UMessage;
 
 @SuppressLint("NewApi")
-public class GCMIntentService extends GCMBaseIntentService {
+public class UMengIntentService extends UmengBaseIntentService {
 
-	private static final String TAG = "GCMIntentService";
+	private static final String TAG = "UMengIntentService";
 	
-	public GCMIntentService() {
-		super("GCMIntentService");
+	public UMengIntentService() {
+		super("UMengIntentService");
 	}
 
 	@Override

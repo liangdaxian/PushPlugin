@@ -1,4 +1,4 @@
-package com.plugin.gcm;
+package com.plugin.umeng;
 
 import android.app.NotificationManager;
 import android.content.Context;
@@ -62,6 +62,13 @@ public class PushPlugin extends CordovaPlugin {
 
 				Log.v(TAG, "execute: ECB=" + gECB + " senderID=" + gSenderID);
 
+                PushAgent mPushAgent = PushAgent.getInstance(getApplicationContext());
+                mPushAgent.enable();
+                PushAgent.getInstance(context).onAppStart();
+
+                //TODO: send to server
+                String device_token = UmengRegistrar.getRegistrationId(context);
+
 				GCMRegistrar.register(getApplicationContext(), gSenderID);
 				result = true;
 				callbackContext.success();
@@ -78,6 +85,9 @@ public class PushPlugin extends CordovaPlugin {
 			}
 
 		} else if (UNREGISTER.equals(action)) {
+
+            PushAgent mPushAgent = PushAgent.getInstance(getApplicationContext());
+            mPushAgent.disable();
 
 			GCMRegistrar.unregister(getApplicationContext());
 

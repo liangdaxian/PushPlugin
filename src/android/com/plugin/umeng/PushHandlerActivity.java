@@ -1,4 +1,4 @@
-package com.plugin.gcm;
+package com.plugin.umeng;
 
 import android.app.Activity;
 import android.app.NotificationManager;
