@@ -1,3 +1,6 @@
+
+# modified to use UMeng API by liangji101
+
 # Cordova Push Notifications Plugin for Android, iOS, WP8, Windows8, BlackBerry 10 and Amazon Fire OS
 
 ## DESCRIPTION
