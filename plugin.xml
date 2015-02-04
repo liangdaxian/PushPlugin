@@ -99,7 +99,7 @@
                 </intent-filter>
             </service>
             <!-- self made service , when get callback, commuacate to js-->
-            <service android:name="com.umeng.message.UmengIntentService" />
+            <service android:name="com.plugin.umeng.UMengIntentService" />
             <!-- V1.3.0添加的service，负责下载通知的资源 -->
             <service android:name="com.umeng.message.UmengDownloadResourceService" />
 

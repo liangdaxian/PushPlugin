@@ -12,8 +12,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.PushAgent;
 import com.umeng.message.UmengRegistrar;
+import com.plugin.umeng.UMengIntentService;
 
 import java.util.Iterator;
 
@@ -65,13 +67,17 @@ public class PushPlugin extends CordovaPlugin {
                 Log.v(TAG, "execute: ECB=" + gECB + " senderID=" + gSenderID);
 
                 PushAgent mPushAgent = PushAgent.getInstance(getApplicationContext());
+                mPushAgent.setPushIntentServiceClass(UMengIntentService.class);
                 mPushAgent.enable();
+
                 PushAgent.getInstance(getApplicationContext()).onAppStart();
 
                 String device_token = UmengRegistrar.getRegistrationId(getApplicationContext());
                 Log.v(TAG, "getting device token: " + device_token);
                 result = true;
-                callbackContext.success();
+
+                callbackContext.success(device_token);
+
             } catch (JSONException e) {
                 Log.e(TAG, "execute: Got JSON Exception " + e.getMessage());
                 result = false;
