@@ -8,6 +8,7 @@
 
 #import "AppDelegate+notification.h"
 #import "PushPlugin.h"
+#import "UMessage.h"
 #import <objc/runtime.h>
 
 static char launchNotificationKey;
@@ -64,6 +65,8 @@ static char launchNotificationKey;
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     NSLog(@"didReceiveNotification");
+    
+    [UMessage didReceiveRemoteNotification:userInfo];
     
     // Get application state for iOS4.x+ devices, otherwise assume active
     UIApplicationState appState = UIApplicationStateActive;
