@@ -48,8 +48,10 @@ static char launchNotificationKey;
 	if (notification)
 	{
 		NSDictionary *launchOptions = [notification userInfo];
-		if (launchOptions)
+		if (launchOptions){
+		    [UMessage startWithAppkey:@"54cb1576fd98c52cbe0004a5" launchOptions:launchOptions];
 			self.launchNotification = [launchOptions objectForKey: @"UIApplicationLaunchOptionsRemoteNotificationKey"];
+	    }
 	}
 }
 
